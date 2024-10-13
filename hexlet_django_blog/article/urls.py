@@ -1,8 +1,7 @@
 from django.urls import path
 from hexlet_django_blog.article import views
 
-from .views import ArticleIndexView
-
 urlpatterns = [
-    path("", ArticleIndexView.as_view(), name="article_index"),
+    path("", views.home, name="home"),
+    path("articles/<str:tags>/<int:article_id>", views.index, name="article"),
 ]
