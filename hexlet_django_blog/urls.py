@@ -25,6 +25,6 @@ from .views import AboutView, IndexView
 urlpatterns = [
     path("", IndexView.as_view(), name="index"),
     path("about/", AboutView.as_view(), name="about"),
-    path("articles/", include("hexlet_django_blog.article.urls")),
+    path("articles/", include("hexlet_django_blog.article.urls"), name='articles'),
     path("admin/", admin.site.urls),
 ]

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ article.name }}</h1>
+    <div>{{ article.body }}</div>
+    <form action="{% url 'articles_delete' id=article.id %}"
+    method="post"
+    align="center"
+    onsubmit="return confirm('Удалить статью безвозвратно?')">
+        {% csrf_token %}
+        <input type="submit" value="Удалить статью {{ article.name }}?">
+    </form>
+{% endblock %}

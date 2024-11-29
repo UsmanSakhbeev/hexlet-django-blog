@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{%block content%}
+    <h1>Список статей</h1>
+    {% for article in articles%}
+        <h2>{{article.name}}</h2>
+        <div>{{article.body}}</div>
+        <a href="{%url 'article' article.id%}">Переход на статью</a>
+        <a href="{% url 'articles_update' article.id %}">Редактировать статью</a>
+
+    {%endfor%}
+    <a href="{% url 'articles_create' %}">Создать новую статью</a>
+
+{%endblock%}
